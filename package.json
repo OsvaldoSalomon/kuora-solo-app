@@ -1,5 +1,5 @@
 {
-	"name": "kuora-app",
+	"name": "kuora-solo-app",
 	"version": "1.0.0",
 	"description": "Welcome to Kuora",
 	"main": "index.js",
@@ -14,13 +14,13 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/OsvaldoSalomon/kuora-app.git"
+		"url": "git+https://github.com/OsvaldoSalomon/kuora-solo-app.git"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/OsvaldoSalomon/kuora-app/issues"
+		"url": "https://github.com/OsvaldoSalomon/kuora-solo-app/issues"
 	},
-	"homepage": "https://github.com/OsvaldoSalomon/kuora-app#readme"
+	"homepage": "https://github.com/OsvaldoSalomon/kuora-solo-app#readme"
 }
