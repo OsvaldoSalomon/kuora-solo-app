@@ -14,7 +14,6 @@ const isProduction = environment === 'production';
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());
-app.use(routes);
 
 // Security Middleware
 if (!isProduction) {
@@ -39,6 +38,8 @@ app.use(
 		},
 	})
 );
+
+app.use(routes);
 
 app.use((_req, _res, next) => {
 	const err = new Error("The requested resource couldn't be found.");
