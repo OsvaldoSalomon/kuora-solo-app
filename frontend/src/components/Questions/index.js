@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { format } from 'date-fns';
 import { getAllQuestions } from '../../store/questions';
+import './Questions.css';
 
 const QuestionsList = () => {
 	const dispatch = useDispatch();
@@ -12,20 +14,31 @@ const QuestionsList = () => {
 	}, [dispatch]);
 
 	return (
-		<>
-			<h1>All Questions</h1>
-
+		<div className="questionList">
 			{questionList?.map((question) => {
 				return (
-					<div key={question.id}>
-						<h2>{question.title}</h2>
-                        <p>{question.author.username}</p>
-						<p>{question.description}</p>
-						<img src={question.imgUrl} alt={question.title} />
+					<div className="question" key={question.id}>
+						<div className="textContainer">
+							<p className="questionAuthor">
+								{question.author.username}
+							</p>
+							<p className="questionDate">{question.createdAt}</p>
+							<h2 className="questionTitle">{question.title}</h2>
+							<p className="questionDescription">
+								{question.description}
+							</p>
+						</div>
+						<div className="imgContainer">
+							<img
+								className="questionImg"
+								src={question.imgUrl}
+								alt={question.title}
+							/>
+						</div>
 					</div>
 				);
 			})}
-		</>
+		</div>
 	);
 };
 
