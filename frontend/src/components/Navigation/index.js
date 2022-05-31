@@ -23,7 +23,10 @@ function Navigation({ isLoaded }) {
 		<ul className="navBar">
 			<li>
 				<NavLink exact to="/">
-					Home
+					Kuora
+				</NavLink>
+				<NavLink to="/questions">
+					Questions
 				</NavLink>
 				{isLoaded && sessionLinks}
 			</li>
