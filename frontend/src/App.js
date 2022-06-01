@@ -26,7 +26,7 @@ function App() {
 						<SignupFormPage />
 					</Route>
 					<Route path="/questions">
-						<QuestionsList/>
+						<QuestionsList />
 					</Route>
 				</Switch>
 			)}
