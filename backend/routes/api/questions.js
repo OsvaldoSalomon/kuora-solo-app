@@ -12,10 +12,19 @@ router.get(
 	'/',
 	asyncHandler(async (req, res) => {
 		const questions = await Question.findAll({
-			include: {
-				model: User,
-				as: 'author',
-			},
+			include: [
+				{
+					model: User,
+					as: 'author',
+				},
+				{
+					model: Answer,
+					include: User,
+				},
+				{
+					model: Upvote,
+				},
+			],
 		});
 		return res.json(questions);
 	})
@@ -64,7 +73,12 @@ router.post(
 
 		const { ownerId } = req.session.auth;
 
-		const question = Question.build({ title, description, imgUrl, ownerId });
+		const question = Question.build({
+			title,
+			description,
+			imgUrl,
+			ownerId,
+		});
 
 		const validatorErrors = validationResult(req);
 
@@ -73,16 +87,8 @@ router.post(
 			res.redirect('/questions');
 		} else {
 			const errors = validatorErrors.array().map((error) => error.msg);
-
-			// res.render('storyForm', {
-			// 	story,
-			// 	csrfToken: req.csrfToken(),
-			// 	errors,
-			// });
 		}
 	})
 );
-
-
 
 module.exports = router;
