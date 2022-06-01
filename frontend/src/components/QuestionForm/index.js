@@ -7,10 +7,10 @@ import './QuestionForm.css';
 const QuestionForm = () => {
 	const dispatch = useDispatch();
 	const history = useHistory();
-	const [question, setQuestion] = useState('');
+	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [imgUrl, setImgUrl] = useState('');
-	const updateQuestion = (e) => setQuestion(e.target.value);
+	const updateTitle = (e) => setTitle(e.target.value);
 	const updateDescription = (e) => setDescription(e.target.value);
 	const updateImageUrl = (e) => setImgUrl(e.target.value);
 	const sessionUser = useSelector((state) => state.session.user);
@@ -21,7 +21,7 @@ const QuestionForm = () => {
 
 		const payload = {
 			ownerId: sessionUser.id,
-			question,
+			title,
 			description,
 			imgUrl,
 		};
@@ -37,7 +37,7 @@ const QuestionForm = () => {
 	};
 
 	const reset = () => {
-		setQuestion('');
+		setTitle('');
 		setDescription('');
 		setImgUrl('');
 	};
@@ -49,8 +49,8 @@ const QuestionForm = () => {
 					type="text"
 					placeholder="What do you want to ask or share?"
 					required
-					value={question}
-					onChange={updateQuestion}
+					value={title}
+					onChange={updateTitle}
 				/>
 				<input
 					type="text"
