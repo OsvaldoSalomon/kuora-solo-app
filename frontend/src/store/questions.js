@@ -32,16 +32,16 @@ export const getAllQuestions = () => async (dispatch) => {
 };
 
 export const writeQuestion = (payload) => async (dispatch) => {
-	const response = await csrfFetch('/api/questions', {
+	const response = await csrfFetch('/api/questions/new', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify(payload),
 	});
 
 	if (response.ok) {
-		const question = await response.json();
-		dispatch(addQuestion(question));
-		return question;
+		const newQuestion = await response.json();
+		dispatch(addQuestion(newQuestion));
+		return newQuestion;
 	}
 };
 
@@ -59,7 +59,7 @@ const questionsReducer = (state = initialState, action) => {
 			return newState;
 		}
 		case ADD_QUESTION:
-			return { ...state, [action.question.id]: action.question };
+			return { ...state, [action.newQuestion.id]: action.newQuestion };
 		default:
 			return state;
 	}

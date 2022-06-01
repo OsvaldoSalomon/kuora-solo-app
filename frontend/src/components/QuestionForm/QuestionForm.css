@@ -1,0 +1,10 @@
+.questionForm {
+    margin-top: 5em;
+    /* margin-top: 4em; */
+    margin-right: 30%;
+    margin-left:30%;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 0 0 8px #9095A1;
+    padding: 1em;
+}

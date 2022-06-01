@@ -13,17 +13,32 @@
     margin-bottom: 2em;
 }
 
-/* .textContainer {
-
+.questionDate {
+    font-size: .8em;
+    color: #9095A1;
 }
 
-.imgContainer {
-
-} */
+.questionDescription {
+    line-height: 1.6;
+}
 
 .imgContainer img {
     max-width: 100%;
     max-height: 100%;
     border-radius: .7em;
     /* object-fit: contain; */
+}
+
+.commentInfo {
+    display: flex;
+}
+
+.commentAuthor {
+    margin-right: .5em;
+    font-weight: 700;
+}
+
+.commentDate {
+    /* font-size: .8em; */
+    color: #9095A1;
 }
