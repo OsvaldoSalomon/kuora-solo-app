@@ -15,6 +15,7 @@ const QuestionForm = () => {
 	const updateImageUrl = (e) => setImgUrl(e.target.value);
 	const sessionUser = useSelector((state) => state.session.user);
 	// console.log(sessionUser.id)
+    //change
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
