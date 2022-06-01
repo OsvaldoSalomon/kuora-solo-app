@@ -2,12 +2,20 @@ import { csrfFetch } from './csrf';
 
 // constant to avoid debugging typos
 const GET_ALL_QUESTIONS = 'questions/getAllQuestions';
+const ADD_QUESTION = 'questions/addQuestion';
 
 //regular action creator
-const loadQuestions = (questions) => {
+export const loadQuestions = (questions) => {
 	return {
 		type: GET_ALL_QUESTIONS,
 		questions,
+	};
+};
+
+export const addQuestion = (question) => {
+	return {
+		type: ADD_QUESTION,
+		question,
 	};
 };
 
@@ -20,6 +28,20 @@ export const getAllQuestions = () => async (dispatch) => {
 
 		dispatch(loadQuestions(data));
 		return data;
+	}
+};
+
+export const writeQuestion = (payload) => async (dispatch) => {
+	const response = await csrfFetch('/api/questions', {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(payload),
+	});
+
+	if (response.ok) {
+		const question = await response.json();
+		dispatch(addQuestion(question));
+		return question;
 	}
 };
 
@@ -36,6 +58,8 @@ const questionsReducer = (state = initialState, action) => {
 			);
 			return newState;
 		}
+		case ADD_QUESTION:
+			return { ...state, [action.question.id]: action.question };
 		default:
 			return state;
 	}
