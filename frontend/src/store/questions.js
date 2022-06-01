@@ -59,7 +59,8 @@ const questionsReducer = (state = initialState, action) => {
 			return newState;
 		}
 		case ADD_QUESTION:
-			return { ...state, [action.newQuestion.id]: action.newQuestion };
+			console.log('this is the action', action);
+			return { ...state, [action.question.id]: action.question };
 		default:
 			return state;
 	}
