@@ -58,7 +58,22 @@ router.post(
 	validateCreate,
 	asyncHandler(async (req, res) => {
 		const question = await Question.create(req.body);
-		res.json(question);
+		const returnQuestion = await Question.findByPk(question.id, {
+			include: [
+				{
+					model: User,
+					as: 'author',
+				},
+				{
+					model: Answer,
+					include: User,
+				},
+				{
+					model: Upvote,
+				},
+			],
+		})
+		res.json(returnQuestion);
 	})
 );
 
