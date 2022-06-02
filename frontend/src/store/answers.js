@@ -58,7 +58,7 @@ const answersReducer = (state = initialState, action) => {
 			return newState;
 		}
 		case ADD_QUESTION:
-			// console.log('this is the action', action);
+			console.log('this is the answer action', action);
 			return { ...state, [action.answer.id]: action.answer };
 		default:
 			return state;
