@@ -98,8 +98,8 @@ const questionsReducer = (state = initialState, action) => {
 			action.questions.forEach(
 				(question) => (newState[question.id] = question)
 			);
-			console.log('this is the action', action);
-			console.log('this is the newState', newState);
+			// console.log('this is the action', action);
+			// console.log('this is the newState', newState);
 			return newState;
 		}
 		case ADD_QUESTION:

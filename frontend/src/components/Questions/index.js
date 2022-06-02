@@ -17,11 +17,7 @@ const QuestionsList = () => {
 	const questionList = useSelector((state) => Object.values(state.questions));
 	const answers = useSelector((state) => Object.values(state.answers));
 	const sessionUser = useSelector((state) => state.session.user);
-	// console.log(questionList);
-	// console.log(
-	// 	questionList.map((question) => console.log(question.Answers[0]))
-	// );
-	// console.log(questionList.map(question => console.log(question.Answers[0].User.username)));
+	
 	const options = {
 		weekday: 'long',
 		year: 'numeric',

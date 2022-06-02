@@ -80,9 +80,9 @@ export const deleteAnswer = (payloadId) => async (dispatch) => {
 	});
 
 	if (response.ok) {
-		const deleteAnswerId = await response.json();
-		dispatch(removeAnswer(deleteAnswerId));
-		return deleteAnswerId;
+		const deletedAnswer = await response.json();
+		dispatch(removeAnswer(deletedAnswer));
+		return deletedAnswer;
 	}
 };
 
@@ -102,13 +102,9 @@ const answersReducer = (state = initialState, action) => {
 			// console.log('this is the answer action', action);
 			return { ...state, [action.answer.id]: action.answer };
 		case REMOVE_ANSWER: {
-			console.log('this is the answer action ', action);
 			const newState = { ...state };
-			console.log('this is the newState', newState);
-			delete newState[action.payloadId];
-			console.log('this is the modified state', newState);
+			delete newState[action.answer.id];
 			return newState;
-			// return state.filter(({id}) => id !== action.answer.answerId)
 		}
 		default:
 			return state;

@@ -78,7 +78,7 @@ router.delete(
 		const answer = await Answer.findByPk(req.params.id);
 		if (answer) {
 			await Answer.destroy({ where: { id: answer.id } });
-			res.json({ answer });
+			res.json(answer);
 		}
 	})
 );

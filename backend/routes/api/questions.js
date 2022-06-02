@@ -126,11 +126,9 @@ router.delete(
 		}
 
 		if (question) {
-			await question.destroy();
+			await Question.destroy({ where: { id: question.id } });
 			res.json(question);
-		} else {
-			res.json({ message: 'Failed to delete the question' });
-		}
+		} 
 	})
 );
 
