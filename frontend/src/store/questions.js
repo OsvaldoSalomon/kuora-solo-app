@@ -80,9 +80,11 @@ export const deleteQuestion = (payloadId) => async (dispatch) => {
 		method: 'DELETE',
 	});
 
+	console.log('response', response);
+
 	if (response.ok) {
 		const deletedQuestion = await response.json();
-		dispatch(editQuestion(deletedQuestion));
+		dispatch(removeQuestion(deletedQuestion));
 		return deletedQuestion;
 	}
 };
