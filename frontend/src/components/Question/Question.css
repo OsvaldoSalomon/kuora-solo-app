@@ -1,0 +1,17 @@
+.question {
+	/* border: 1px solid black; */
+	background-color: white;
+	border-radius: 1em;
+	box-shadow: 0 0 8px #9095a1;
+	padding: 1em;
+	margin-bottom: 2em;
+}
+
+.questionDate {
+	font-size: 0.8em;
+	color: #9095a1;
+}
+
+.questionDescription {
+	line-height: 1.6;
+}
