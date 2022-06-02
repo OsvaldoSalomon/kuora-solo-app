@@ -29,16 +29,16 @@
     /* object-fit: contain; */
 }
 
-.commentInfo {
+.answerInfo {
     display: flex;
 }
 
-.commentAuthor {
+.answerAuthor {
     margin-right: .5em;
     font-weight: 700;
 }
 
-.commentDate {
+.answerDate {
     /* font-size: .8em; */
     color: #9095A1;
 }

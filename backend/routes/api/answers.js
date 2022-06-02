@@ -55,6 +55,7 @@ router.put('/:id(\\d+)/edit', validateCreate, asyncHandler(async (req, res) => {
 		const answer = await Answer.findByPk(req.params.id);
 
 		answer.answer = req.body.answer;
+		answer.imgUrl = req.body.imgUrl;
 		await answer.save();
 
 		const returnAnswer = await Answer.findByPk(answer.id, {
