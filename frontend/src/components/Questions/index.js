@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllQuestions } from '../../store/questions';
 import QuestionForm from '../QuestionForm';
+import AnswerForm from '../AnswerForm';
 import './Questions.css';
 
 const QuestionsList = () => {
@@ -44,6 +45,7 @@ const QuestionsList = () => {
 							</div>
 							<hr />
 							<div className="answersContainer">
+								<AnswerForm questionId={question.id} />
 								{question?.Answers.map((answer) => {
 									return (
 										<div key={answer.id} className="answer">
@@ -57,7 +59,7 @@ const QuestionsList = () => {
 													).toLocaleDateString()}
 												</p>
 											</div>
-											<p className="answerAnswer">
+											<p className="answerText">
 												{answer.answer}
 											</p>
 											<div className="imgContainer">
