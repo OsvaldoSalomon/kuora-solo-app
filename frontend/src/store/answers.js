@@ -1,10 +1,10 @@
 import { csrfFetch } from './csrf';
 
 // constant to avoid debugging typos
-const GET_ALL_ANSWERS = 'questions/getAllAnswers';
-const ADD_ANSWER = 'questions/addAnswer';
-const EDIT_ANSWER = 'questions/editAnswer';
-const REMOVE_ANSWER = 'questions/removeAnswer';
+const GET_ALL_ANSWERS = 'answers/getAllAnswers';
+const ADD_ANSWER = 'answers/addAnswer';
+const EDIT_ANSWER = 'answers/editAnswer';
+const REMOVE_ANSWER = 'answers/removeAnswer';
 
 //regular action creator
 export const loadAnswers = (answers) => {

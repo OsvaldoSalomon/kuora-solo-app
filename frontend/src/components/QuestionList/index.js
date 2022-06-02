@@ -30,7 +30,7 @@ const QuestionsList = () => {
 								<AnswerForm questionId={question.id} />
 								{answers?.map((answer) => {
 									if (answer.questionId === question.id) {
-										return <Answer answer={answer} />;
+										return <Answer key={answer.id} answer={answer} />;
 									}
 								})}
 							</div>
