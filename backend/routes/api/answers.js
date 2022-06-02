@@ -53,20 +53,18 @@ router.post(
 
 router.put('/:id(\\d+)/edit', validateCreate, asyncHandler(async (req, res) => {
 		const answer = await Answer.findByPk(req.params.id);
-		console.log('-------', answer);
-		console.log('REQ-------', req.body);
 
 		answer.answer = req.body.answer;
-		// await answer.save();
+		await answer.save();
 
-		// const returnAnswer = await Answer.findByPk(answer.id, {
-		// 	include: [
-		// 		{
-		// 			model: User,
-		// 		},
-		// 	],
-		// });
-		res.json(answer);
+		const returnAnswer = await Answer.findByPk(answer.id, {
+			include: [
+				{
+					model: User,
+				},
+			],
+		});
+		res.json(returnAnswer);
 	})
 );
 
