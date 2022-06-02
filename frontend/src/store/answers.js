@@ -2,7 +2,7 @@ import { csrfFetch } from './csrf';
 
 // constant to avoid debugging typos
 const GET_ALL_ANSWERS = 'questions/getAllAnswers';
-const ADD_QUESTION = 'questions/addAnswer';
+const ADD_ANSWER = 'questions/addAnswer';
 
 //regular action creator
 export const loadAnswers = (answers) => {
@@ -14,7 +14,7 @@ export const loadAnswers = (answers) => {
 
 export const addAnswer = (answer) => {
 	return {
-		type: ADD_QUESTION,
+		type: ADD_ANSWER,
 		answer,
 	};
 };
@@ -57,8 +57,8 @@ const answersReducer = (state = initialState, action) => {
 			);
 			return newState;
 		}
-		case ADD_QUESTION:
-			// console.log('this is the action', action);
+		case ADD_ANSWER:
+			console.log('this is the answer action', action);
 			return { ...state, [action.answer.id]: action.answer };
 		default:
 			return state;
