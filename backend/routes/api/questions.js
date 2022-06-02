@@ -72,43 +72,64 @@ router.post(
 					model: Upvote,
 				},
 			],
-		})
+		});
 		res.json(returnQuestion);
 	})
 );
 
-router.put('/:id(\\d+)/edit', asyncHandler(async (req, res) => {
-    const question = await Question.findByPk(req.params.id);
+router.put(
+	'/:id(\\d+)/edit',
+	asyncHandler(async (req, res) => {
+		const question = await Question.findByPk(req.params.id);
 
-    question.title = req.body.title;
-    await question.save()
+		question.title = req.body.title;
+		await question.save();
 
-    const returnQuestion = await Question.findByPk(question.id, {
-		include: [
-			{
-				model: User,
-				as: 'author',
-			},
-			{
-				model: Answer,
-				include: User,
-			},
-			{
-				model: Upvote,
-			},
-		],
+		const returnQuestion = await Question.findByPk(question.id, {
+			include: [
+				{
+					model: User,
+					as: 'author',
+				},
+				{
+					model: Answer,
+					include: User,
+				},
+				{
+					model: Upvote,
+				},
+			],
+		});
+		res.json(returnQuestion);
 	})
-	res.json(returnQuestion);
-}))
+);
 
-router.delete("/:id(\\d+)", asyncHandler(async (req, res) => {
-    const question = await Question.findByPk(req.params.id)
-    if (question) {
-        await question.destroy()
-        res.json({ message: 'Question was deleted' })
-    } else {
-        res.json({ message: 'Failed to delete the question' })
-    }
-}))
+router.delete(
+	'/:id(\\d+)',
+	asyncHandler(async (req, res) => {
+		const questionId = req.params.id;
+		const question = await Question.findByPk(questionId);
+		const allAnswers = await Answer.findAll({
+			where: { questionId },
+		});
+
+		const allUpvotes = await Upvote.findAll({
+			where: { questionId },
+		});
+
+		for (let answer of allAnswers) {
+			await answer.destroy();
+		}
+
+		for (let upvote of allUpvotes) {
+			await upvote.destroy();
+		}
+
+		if (question) {
+			await Question.destroy({ where: { id: question.id } });
+			res.json(question);
+		} 
+	})
+);
 
 module.exports = router;

@@ -3,6 +3,8 @@ import { csrfFetch } from './csrf';
 // constant to avoid debugging typos
 const GET_ALL_ANSWERS = 'questions/getAllAnswers';
 const ADD_ANSWER = 'questions/addAnswer';
+const EDIT_ANSWER = 'questions/editAnswer';
+const REMOVE_ANSWER = 'questions/removeAnswer';
 
 //regular action creator
 export const loadAnswers = (answers) => {
@@ -15,6 +17,20 @@ export const loadAnswers = (answers) => {
 export const addAnswer = (answer) => {
 	return {
 		type: ADD_ANSWER,
+		answer,
+	};
+};
+
+export const editAnswer = (answer) => {
+	return {
+		type: EDIT_ANSWER,
+		answer,
+	};
+};
+
+export const removeAnswer = (answer) => {
+	return {
+		type: REMOVE_ANSWER,
 		answer,
 	};
 };
@@ -44,6 +60,32 @@ export const writeAnswer = (payload) => async (dispatch) => {
 	}
 };
 
+export const updateAnswer = (payload) => async (dispatch) => {
+	const response = await csrfFetch(`/api/answers/${payload.id}/edit`, {
+		method: 'PUT',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(payload),
+	});
+
+	if (response.ok) {
+		const updatedAnswer = await response.json();
+		dispatch(updateAnswer(updatedAnswer));
+		return updatedAnswer;
+	}
+};
+
+export const deleteAnswer = (payloadId) => async (dispatch) => {
+	const response = await csrfFetch(`/api/answers/${payloadId}`, {
+		method: 'DELETE',
+	});
+
+	if (response.ok) {
+		const deletedAnswer = await response.json();
+		dispatch(removeAnswer(deletedAnswer));
+		return deletedAnswer;
+	}
+};
+
 // state object
 const initialState = {};
 
@@ -52,14 +94,18 @@ const answersReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case GET_ALL_ANSWERS: {
 			const newState = {};
-			action.answers.forEach(
-				(answer) => (newState[answer.id] = answer)
-			);
+			action.answers.forEach((answer) => (newState[answer.id] = answer));
 			return newState;
 		}
 		case ADD_ANSWER:
-			console.log('this is the answer action', action);
+		case EDIT_ANSWER:
+			// console.log('this is the answer action', action);
 			return { ...state, [action.answer.id]: action.answer };
+		case REMOVE_ANSWER: {
+			const newState = { ...state };
+			delete newState[action.answer.id];
+			return newState;
+		}
 		default:
 			return state;
 	}
