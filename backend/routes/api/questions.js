@@ -109,6 +109,7 @@ router.delete(
 	asyncHandler(async (req, res) => {
 		const questionId = req.params.id;
 		const question = await Question.findByPk(questionId);
+
 		const allAnswers = await Answer.findAll({
 			where: { questionId },
 		});
@@ -128,7 +129,7 @@ router.delete(
 		if (question) {
 			await Question.destroy({ where: { id: question.id } });
 			res.json(question);
-		} 
+		}
 	})
 );
 
