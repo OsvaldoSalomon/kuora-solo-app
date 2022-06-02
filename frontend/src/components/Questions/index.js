@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllQuestions } from '../../store/questions';
+import { getAllAnswers } from '../../store/answers';
 import QuestionForm from '../QuestionForm';
 import AnswerForm from '../AnswerForm';
 import './Questions.css';
@@ -9,8 +10,10 @@ const QuestionsList = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getAllQuestions());
+		dispatch(getAllAnswers());
 	}, [dispatch]);
 	const questionList = useSelector((state) => Object.values(state.questions));
+	const answers = useSelector((state) => Object.values(state.answers));
 	// console.log(questionList);
 	// console.log(
 	// 	questionList.map((question) => console.log(question.Answers[0]))
@@ -46,31 +49,36 @@ const QuestionsList = () => {
 							<hr />
 							<div className="answersContainer">
 								<AnswerForm questionId={question.id} />
-								{question?.Answers.map((answer) => {
-									return (
-										<div key={answer.id} className="answer">
-											<div className="answerInfo">
-												<p className="answerAuthor">
-													{answer.User.username}
+								{answers?.map((answer) => {
+									if (answer.questionId === question.id) {
+										return (
+											<div
+												key={answer.id}
+												className="answer"
+											>
+												<div className="answerInfo">
+													<p className="answerAuthor">
+														{answer.User.username}
+													</p>
+													<p className="answerDate">
+														{new Date(
+															answer.createdAt
+														).toLocaleDateString()}
+													</p>
+												</div>
+												<p className="answerText">
+													{answer.answer}
 												</p>
-												<p className="answerDate">
-													{new Date(
-														answer.createdAt
-													).toLocaleDateString()}
-												</p>
+												<div className="imgContainer">
+													<img
+														className="questionImg"
+														src={answer.imgUrl}
+														alt={answer.title}
+													/>
+												</div>
 											</div>
-											<p className="answerText">
-												{answer.answer}
-											</p>
-											<div className="imgContainer">
-												<img
-													className="questionImg"
-													src={answer.imgUrl}
-													alt={answer.title}
-												/>
-											</div>
-										</div>
-									);
+										);
+									}
 								})}
 							</div>
 							<div className="upvotesContainer">
