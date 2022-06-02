@@ -80,7 +80,7 @@ export const deleteAnswer = (payloadId) => async (dispatch) => {
 	});
 
 	if (response.ok) {
-		const { id: deleteAnswerId } = await response.json();
+		const deleteAnswerId = await response.json();
 		dispatch(removeAnswer(deleteAnswerId));
 		return deleteAnswerId;
 	}
