@@ -10,17 +10,21 @@ module.exports = {
 			},
 			userId: {
 				type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'Users' }
+				allowNull: false,
+				references: { model: 'Users' },
 			},
 			questionId: {
 				type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'Questions' }
+				allowNull: false,
+				references: { model: 'Questions' },
 			},
 			answer: {
 				type: Sequelize.TEXT,
-        allowNull: false
+				allowNull: false,
+			},
+			imgUrl: {
+				type: Sequelize.TEXT,
+				allowNull: false,
 			},
 			createdAt: {
 				allowNull: false,

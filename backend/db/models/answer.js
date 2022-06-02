@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.TEXT,
 				allowNull: false,
 			},
+			imgUrl: {
+				type: DataTypes.TEXT,
+				allowNull: false,
+			}
 		},
 		{}
 	);

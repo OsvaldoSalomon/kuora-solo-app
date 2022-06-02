@@ -6,16 +6,9 @@ import './QuestionForm.css';
 
 const QuestionForm = () => {
 	const dispatch = useDispatch();
-	const history = useHistory();
 	const [title, setTitle] = useState('');
-	const [description, setDescription] = useState('');
-	const [imgUrl, setImgUrl] = useState('');
 	const updateTitle = (e) => setTitle(e.target.value);
-	const updateDescription = (e) => setDescription(e.target.value);
-	const updateImageUrl = (e) => setImgUrl(e.target.value);
 	const sessionUser = useSelector((state) => state.session.user);
-	// console.log(sessionUser.id)
-    //change
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -23,24 +16,16 @@ const QuestionForm = () => {
 		const payload = {
 			ownerId: sessionUser.id,
 			title,
-			description,
-			imgUrl,
 		};
 
 		console.log(payload);
 
-		// let newQuestion = await dispatch(writeQuestion(payload));
 		dispatch(writeQuestion(payload));
-		// if (newQuestion) {
-		// 	history.push('/questions');
-		// }
 		reset();
 	};
 
 	const reset = () => {
 		setTitle('');
-		setDescription('');
-		setImgUrl('');
 	};
 
 	return (
@@ -52,19 +37,6 @@ const QuestionForm = () => {
 					required
 					value={title}
 					onChange={updateTitle}
-				/>
-				<input
-					type="text"
-					placeholder="Add a Description"
-					required
-					value={description}
-					onChange={updateDescription}
-				/>
-				<input
-					type="text"
-					placeholder="Add an Image URL"
-					value={imgUrl}
-					onChange={updateImageUrl}
 				/>
 				<button type="submit">Add Question</button>
 			</form>

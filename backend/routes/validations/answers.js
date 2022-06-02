@@ -10,5 +10,8 @@ const userId = check('userId')
 const questionId = check('questionId')
 	.exists({ checkFalsy: true })
 	.withMessage('Please provide a value for the questionId');
+const imgUrl = check('questionId')
+	.exists({ checkFalsy: true })
+	.withMessage('Please provide a value for the image URL');
 
-exports.validateCreate = [answer, userId, questionId, handleValidationErrors];
+exports.validateCreate = [answer, userId, questionId, imgUrl, handleValidationErrors];

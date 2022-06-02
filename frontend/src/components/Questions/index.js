@@ -24,7 +24,7 @@ const QuestionsList = () => {
 
 	return (
 		<div>
-			<QuestionForm  />
+			<QuestionForm />
 			<div className="questionList">
 				{questionList?.map((question) => {
 					return (
@@ -41,44 +41,38 @@ const QuestionsList = () => {
 								<h2 className="questionTitle">
 									{question.title}
 								</h2>
-								<p className="questionDescription">
-									{question.description}
-								</p>
-							</div>
-							<div className="imgContainer">
-								<img
-									className="questionImg"
-									src={question.imgUrl}
-									alt={question.title}
-								/>
-							</div>
-							<div className="upvotesContainer">
-								<p>Upvotes: {question?.Upvotes.length}</p>
 							</div>
 							<hr />
-							<div className="commentsContainer">
+							<div className="answersContainer">
 								{question?.Answers.map((answer) => {
 									return (
-										<div
-											key={answer.id}
-											className="comment"
-										>
-											<div className="commentInfo">
-												<p className="commentAuthor">
+										<div key={answer.id} className="answer">
+											<div className="answerInfo">
+												<p className="answerAuthor">
 													{answer.User.username}
 												</p>
-												<p className="commentDate">
+												<p className="answerDate">
 													{new Date(
 														answer.createdAt
 													).toLocaleDateString()}
 												</p>
 											</div>
-											<p className="commentAnswer">
+											<p className="answerAnswer">
 												{answer.answer}
 											</p>
+											<div className="imgContainer">
+												<img
+													className="questionImg"
+													src={answer.imgUrl}
+													alt={answer.title}
+												/>
+											</div>
 										</div>
 									);
 								})}
+							</div>
+							<div className="upvotesContainer">
+								<p>Upvotes: {question?.Upvotes.length}</p>
 							</div>
 						</div>
 					);

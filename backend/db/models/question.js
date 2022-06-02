@@ -8,15 +8,7 @@ module.exports = (sequelize, DataTypes) => {
 		title: {
 			type: DataTypes.TEXT,
 			allowNull: false,
-		},
-		description: {
-			type: DataTypes.TEXT,
-			allowNull: false,
-		},
-		imgUrl: {
-			type: DataTypes.TEXT,
-			allowNull: false,
-		},
+		}
 	});
 	Question.associate = function (models) {
 		const columnMapping = {
