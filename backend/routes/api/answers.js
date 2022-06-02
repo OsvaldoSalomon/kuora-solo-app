@@ -51,7 +51,10 @@ router.post(
 	})
 );
 
-router.put('/:id(\\d+)/edit', validateCreate, asyncHandler(async (req, res) => {
+router.put(
+	'/:id(\\d+)/edit',
+	validateCreate,
+	asyncHandler(async (req, res) => {
 		const answer = await Answer.findByPk(req.params.id);
 
 		answer.answer = req.body.answer;
@@ -69,14 +72,15 @@ router.put('/:id(\\d+)/edit', validateCreate, asyncHandler(async (req, res) => {
 	})
 );
 
-router.delete("/:id(\\d+)", asyncHandler(async (req, res) => {
-    const answer = await Answer.findByPk(req.params.id)
-    if (answer) {
-        await answer.destroy()
-        res.json({ message: 'Answer was deleted' })
-    } else {
-        res.json({ message: 'Failed to delete the Answer' })
-    }
-}))
+router.delete(
+	'/:id(\\d+)',
+	asyncHandler(async (req, res) => {
+		const answer = await Answer.findByPk(req.params.id);
+		if (answer) {
+			await Answer.destroy({ where: { id: answer.id } });
+			res.json({ answer });
+		}
+	})
+);
 
 module.exports = router;
