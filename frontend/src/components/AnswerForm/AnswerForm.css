@@ -1,0 +1,31 @@
+.answerForm {
+	/* background-color: rgb(233, 235, 236); */
+}
+
+.answerInput {
+	border: 0.01em solid black;
+	height: 1.5em;
+	border-radius: 0.4em;
+	margin-right: 1%;
+	font-family: 'Montserrat', sans-serif;
+	/* font-size: 1.5em; */
+	/* text-align: center; */
+}
+
+.imageInput {
+	border: 0.01em solid black;
+	height: 1.5em;
+	border-radius: 0.4em;
+    margin-right: 1%;
+	font-family: 'Montserrat', sans-serif;
+	/* font-size: 1.5em; */
+	/* text-align: center; */
+}
+
+.submitAnswerButton {
+    background-color: dodgerblue;
+    color: white;
+    padding: .5em;
+    border: none;
+    border-radius: 1em;
+}

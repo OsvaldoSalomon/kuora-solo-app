@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { writeQuestion } from '../../store/questions';
 import './QuestionForm.css';
 
@@ -31,14 +30,19 @@ const QuestionForm = () => {
 	return (
 		<section className="questionForm">
 			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					placeholder="What do you want to ask or share?"
-					required
-					value={title}
-					onChange={updateTitle}
-				/>
-				<button type="submit">Add Question</button>
+				<div className="formContainer">
+					<input
+						className="questionInput"
+						type="text"
+						placeholder="What do you want to ask or share?"
+						required
+						value={title}
+						onChange={updateTitle}
+					/>
+					<button className="questionButton" type="submit">
+						Add Question
+					</button>
+				</div>
 			</form>
 		</section>
 	);
