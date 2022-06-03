@@ -19,7 +19,7 @@ const QuestionsList = () => {
 
 	return (
 		<div>
-			<QuestionForm />
+			<QuestionForm id="postQuestion" />
 			<div className="questionList">
 				{questionList?.map((question) => {
 					return (

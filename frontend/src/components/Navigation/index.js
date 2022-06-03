@@ -9,7 +9,23 @@ function Navigation({ isLoaded }) {
 
 	let sessionLinks;
 	if (sessionUser) {
-		sessionLinks = <ProfileButton user={sessionUser} />;
+		sessionLinks = (
+			<div>
+				<div>
+					<button>
+						<a href="postQuestion">
+							<i className="fas fa-pen" />
+						</a>
+					</button>
+				</div>
+				<div>
+					<NavLink to="/questions">Questions</NavLink>
+				</div>
+				<div>
+					<ProfileButton user={sessionUser} />
+				</div>
+			</div>
+		);
 	} else {
 		sessionLinks = (
 			<>
@@ -23,10 +39,7 @@ function Navigation({ isLoaded }) {
 		<ul className="navBar">
 			<li>
 				<NavLink exact to="/">
-					Kuora
-				</NavLink>
-				<NavLink to="/questions">
-					Questions
+					<div className="logo">Kuora</div>
 				</NavLink>
 				{isLoaded && sessionLinks}
 			</li>
