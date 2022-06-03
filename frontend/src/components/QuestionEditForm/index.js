@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { writeQuestion } from '../../store/questions';
-import './QuestionForm.css';
+import { updateQuestion } from '../../store/questions';
+import './QuestionEditForm.css';
 
-const QuestionForm = () => {
+const QuestionEditForm = ({ question, hideForm }) => {
 	const dispatch = useDispatch();
-	const [title, setTitle] = useState('');
+	const [title, setTitle] = useState(question.title);
 	const updateTitle = (e) => setTitle(e.target.value);
 	const sessionUser = useSelector((state) => state.session.user);
 
@@ -13,14 +13,16 @@ const QuestionForm = () => {
 		e.preventDefault();
 
 		const payload = {
+			id: question.id,
 			ownerId: sessionUser.id,
 			title,
 		};
 
-		console.log(payload);
+		console.log('PAYLOAD', payload);
 
-		dispatch(writeQuestion(payload));
+		dispatch(updateQuestion(payload));
 		reset();
+		hideForm();
 	};
 
 	const reset = () => {
@@ -28,24 +30,33 @@ const QuestionForm = () => {
 	};
 
 	return (
-		<section className="questionForm">
+		<section className="questionEditForm">
 			<form onSubmit={handleSubmit}>
 				<div className="formContainer">
 					<input
-						className="questionInput"
+						className="questionEditInput"
 						type="text"
 						placeholder="What do you want to ask or share?"
 						required
 						value={title}
 						onChange={updateTitle}
 					/>
-					<button className="questionButton" type="submit">
-						<i className="fas fa-pen" />
-					</button>
+					<div>
+						<button className="questionEditButton" type="submit">
+							Edit
+						</button>
+						<button
+							type="button"
+							onClick={hideForm}
+							className="cancelEditButton"
+						>
+							Cancel
+						</button>
+					</div>
 				</div>
 			</form>
 		</section>
 	);
 };
 
-export default QuestionForm;
+export default QuestionEditForm;

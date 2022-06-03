@@ -1,0 +1,70 @@
+.loginContainer {
+	margin-top: 12%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loginForm {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 35em;
+	padding: 3.5em;
+	background: white;
+	box-sizing: border-box;
+	box-shadow: 0 10px 15px #9095a1;
+	border-radius: 10px;
+}
+
+.inputBox {
+	border: none;
+	border-bottom: 0.1em solid black;
+	height: 2em;
+	width: 20em;
+	margin-right: 1%;
+	margin-bottom: 10%;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.inputBox:focus {
+	border: none;
+	outline: none;
+	border-bottom: 0.1em solid black;
+	height: 2em;
+	margin-right: 1%;
+	margin-bottom: 10%;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.loginButton {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	font-size: 1em;
+	background-color: #235fea;
+	color: white;
+	margin-bottom: 2em;
+	border: none;
+	border-radius: 1em;
+	width: 8em;
+	height: 2em;
+}
+
+.loginButton:hover {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	margin-bottom: 2em;
+	font-size: 1em;
+	background-color: #0038bb;
+	color: white;
+	border: none;
+	border-radius: 1em;
+	width: 8em;
+	height: 2em;
+}
+
+.linkSignup {
+	text-decoration: none;
+	color: #0443d5;
+}

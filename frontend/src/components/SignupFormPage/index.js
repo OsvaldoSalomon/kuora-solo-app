@@ -32,50 +32,65 @@ function SignupFormPage() {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<ul>
-				{errors.map((error, idx) => (
-					<li key={idx}>{error}</li>
-				))}
-			</ul>
-			<label>
-				Email
-				<input
-					type="text"
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-					required
-				/>
-			</label>
-			<label>
-				Username
-				<input
-					type="text"
-					value={username}
-					onChange={(e) => setUsername(e.target.value)}
-					required
-				/>
-			</label>
-			<label>
-				Password
-				<input
-					type="password"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					required
-				/>
-			</label>
-			<label>
-				Confirm Password
-				<input
-					type="password"
-					value={confirmPassword}
-					onChange={(e) => setConfirmPassword(e.target.value)}
-					required
-				/>
-			</label>
-			<button type="submit">Sign Up</button>
-		</form>
+		<div className="signupContainer">
+			<form className="signUpForm" onSubmit={handleSubmit}>
+				<h1>Welcome</h1>
+				<ul>
+					{errors.map((error, idx) => (
+						<li key={idx}>{error}</li>
+					))}
+				</ul>
+				<div>
+					<input
+						className="inputBox"
+						placeholder="Email"
+						type="text"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						required
+					/>
+				</div>
+				<div>
+					<input
+						className="inputBox"
+						placeholder="Username"
+						type="text"
+						value={username}
+						onChange={(e) => setUsername(e.target.value)}
+						required
+					/>
+				</div>
+				<div>
+					<input
+						className="inputBox"
+						placeholder="Password"
+						type="password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						required
+					/>
+				</div>
+				<div>
+					<input
+						className="inputBox"
+						placeholder="Confirm Password"
+						type="password"
+						value={confirmPassword}
+						onChange={(e) => setConfirmPassword(e.target.value)}
+						required
+					/>
+				</div>
+				<button className="signupButton" type="submit">
+					Sign Up
+				</button>
+				<p>
+					Already have an account?{' '}
+					<a className="linkLogin" href="/login">
+						Login
+					</a>
+				</p>
+			</form>
+		</div>
 	);
 }
 

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteAnswer } from '../../store/answers';
-import './Answer.css'
+import './Answer.css';
 
 const Answer = ({ answer }) => {
 	const dispatch = useDispatch();
@@ -9,16 +9,23 @@ const Answer = ({ answer }) => {
 	return (
 		<div key={answer.id} className="answer">
 			<div className="answerInfo">
-				<p className="answerAuthor">{answer.User.username}</p>
-				<p className="answerDate">
-					{new Date(answer.createdAt).toLocaleDateString()}
-				</p>
+				<div className="answerInfoAuthor">
+					<p className="answerAuthor">{answer.User.username}</p>
+					<p className="answerDate">
+						{new Date(answer.createdAt).toLocaleDateString()}
+					</p>
+				</div>
 				{sessionUser.id === answer.User.id ? (
 					<div className="buttonsEditDelete">
-						<button onClick={() => dispatch(deleteAnswer(answer.id))}>
-							Delete
+						<button
+							className="deleteBtn"
+							onClick={() => dispatch(deleteAnswer(answer.id))}
+						>
+							<i class="fas fa-trash-alt"></i>
 						</button>
-						<button>Edit</button>
+						<button className="editBtn">
+							<i class="fas fa-edit"></i>
+						</button>
 					</div>
 				) : (
 					<span></span>

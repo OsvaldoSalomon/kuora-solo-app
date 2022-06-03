@@ -5,7 +5,41 @@
     /* object-fit: contain; */
 }
 
+.deleteBtn {
+	background: transparent;
+	border: none;
+	color: #f10606;
+	font-size: 1.2em;
+}
+
+.deleteBtn:hover {
+	background: transparent;
+	border: none;
+	color: #b70404;
+	font-size: 1.5em;
+	animation-delay: 500ms;
+}
+
+.editBtn {
+	background: transparent;
+	border: none;
+	color: #0546a2;
+	font-size: 1.2em;
+}
+
+.editBtn:hover {
+	background: transparent;
+	border: none;
+	color: #0668f1;
+	font-size: 1.5em;
+}
+
 .answerInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.answerInfoAuthor {
     display: flex;
 }
 
