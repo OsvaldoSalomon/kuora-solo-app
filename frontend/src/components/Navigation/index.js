@@ -10,40 +10,35 @@ function Navigation({ isLoaded }) {
 	let sessionLinks;
 	if (sessionUser) {
 		sessionLinks = (
-			<div>
-				<div>
-					<button>
-						<a href="postQuestion">
-							<i className="fas fa-pen" />
-						</a>
-					</button>
-				</div>
-				<div>
+			<>
+				{/* <li>
 					<NavLink to="/questions">Questions</NavLink>
-				</div>
-				<div>
+				</li> */}
+				<li>
 					<ProfileButton user={sessionUser} />
-				</div>
-			</div>
+				</li>
+			</>
 		);
 	} else {
 		sessionLinks = (
 			<>
-				<NavLink to="/login">Log In</NavLink>
-				<NavLink to="/signup">Sign Up</NavLink>
+				<NavLink className="authLink" to="/login">Log In</NavLink>
+				<NavLink className="authLink" to="/signup">Sign Up</NavLink>
 			</>
 		);
 	}
 
 	return (
-		<ul className="navBar">
-			<li>
-				<NavLink exact to="/">
-					<div className="logo">Kuora</div>
-				</NavLink>
-				{isLoaded && sessionLinks}
-			</li>
-		</ul>
+		<div className="navBar">
+			<ul className="navLinks">
+				<li>
+					<NavLink className="logoLink" exact to="/">
+						<div className="logo">Kuora</div>
+					</NavLink>
+				</li>
+				<li>{isLoaded && sessionLinks}</li>
+			</ul>
+		</div>
 	);
 }
 

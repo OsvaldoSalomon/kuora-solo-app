@@ -80,8 +80,6 @@ export const deleteQuestion = (payloadId) => async (dispatch) => {
 		method: 'DELETE',
 	});
 
-	console.log('response', response);
-
 	if (response.ok) {
 		const deletedQuestion = await response.json();
 		dispatch(removeQuestion(deletedQuestion));
@@ -100,15 +98,11 @@ const questionsReducer = (state = initialState, action) => {
 			action.questions.forEach(
 				(question) => (newState[question.id] = question)
 			);
-			// console.log('this is the action', action);
-			// console.log('this is the newState', newState);
 			return newState;
 		}
 		case ADD_QUESTION:
-			console.log('this is the action', action);
 			return { ...state, [action.question.id]: action.question };
 		case EDIT_QUESTION:
-			console.log('this is the action', action);
 			return { ...state, [action.question.id]: action.question };
 		case REMOVE_QUESTION:
 			const newState = { ...state };

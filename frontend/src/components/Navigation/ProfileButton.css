@@ -1,3 +1,43 @@
 .profile-dropdown {
-    background-color: white;
+	border: none;
+	border-radius: 0.5em;
+	box-shadow: 0 0 8px #9095a1;
+	margin: 0.5em 3.5em;
+	padding: 1em;
+	list-style: none;
+	position: absolute;
+	right: 0;
+	top: 3em;
+	background-color: white;
+}
+
+li {
+    margin-bottom: .5em;
+}
+
+.profileButton {
+	display: flex;
+	margin-right: 4em;
+	margin-bottom: 1em;
+	background-color: white;
+	border: none;
+	font-size: 1.5em;
+}
+
+.logoutBtn {
+	background-color: white;
+	color: rgb(255, 38, 30);
+	padding: 0.3em;
+	border: 1px solid rgb(255, 38, 30);
+	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.logoutBtn:hover {
+	background-color: rgb(255, 38, 30);
+	color: white;
+	padding: 0.3em;
+	border: none;
+	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
 }

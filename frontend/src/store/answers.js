@@ -69,7 +69,7 @@ export const updateAnswer = (payload) => async (dispatch) => {
 
 	if (response.ok) {
 		const updatedAnswer = await response.json();
-		dispatch(updateAnswer(updatedAnswer));
+		dispatch(editAnswer(updatedAnswer));
 		return updatedAnswer;
 	}
 };
@@ -98,6 +98,7 @@ const answersReducer = (state = initialState, action) => {
 			return newState;
 		}
 		case ADD_ANSWER:
+			return { ...state, [action.answer.id]: action.answer };
 		case EDIT_ANSWER:
 			// console.log('this is the answer action', action);
 			return { ...state, [action.answer.id]: action.answer };

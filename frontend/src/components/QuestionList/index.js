@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllQuestions } from '../../store/questions';
 import { getAllAnswers } from '../../store/answers';
@@ -10,24 +10,36 @@ import './QuestionList.css';
 
 const QuestionsList = () => {
 	const dispatch = useDispatch();
+	const [showAnswerForm, setShowAnswerForm] = useState(false);
+	const questionList = useSelector((state) => Object.values(state.questions));
+	const answers = useSelector((state) => Object.values(state.answers));
+	const sortedQuestions = questionList
+		.sort((a, b) => {
+			return new Date(a.createdAt - b.createdAt);
+		})
+		.reverse();
+
 	useEffect(() => {
 		dispatch(getAllQuestions());
 		dispatch(getAllAnswers());
 	}, [dispatch]);
-	const questionList = useSelector((state) => Object.values(state.questions));
-	const answers = useSelector((state) => Object.values(state.answers));
+
+	const handleShowAnswerForm = () => {
+		setShowAnswerForm(!showAnswerForm);
+	};
 
 	return (
 		<div>
 			<QuestionForm id="postQuestion" />
 			<div className="questionList">
-				{questionList?.map((question) => {
+				{sortedQuestions?.map((question) => {
 					return (
 						<div className="question" key={question.id}>
 							<Question question={question} />
 							<hr />
 							<div className="answersContainer">
-								<AnswerForm questionId={question.id} />
+								<button className="showAnswerForm" onClick={handleShowAnswerForm}>Answer Question</button>
+								{showAnswerForm && <AnswerForm questionId={question.id} />}
 								{answers?.map((answer) => {
 									if (answer.questionId === question.id) {
 										return <Answer key={answer.id} answer={answer} />;

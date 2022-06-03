@@ -41,7 +41,7 @@ const QuestionEditForm = ({ question, hideForm }) => {
 						value={title}
 						onChange={updateTitle}
 					/>
-					<div>
+					<div className='buttonGroup'>
 						<button className="questionEditButton" type="submit">
 							Edit
 						</button>

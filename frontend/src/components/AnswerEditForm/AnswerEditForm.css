@@ -1,31 +1,28 @@
-.formContainer {
-	display: block;
-}
-
-.questionEditInput {
-    border: none;
-    padding-bottom: .5em;
-    border-bottom: .01em solid black;
-	display: block;
+.answerEditInput {
+	border: 0.01em solid black;
 	width: 100%;
+	outline: none;
+	border-radius: 0.4em;
+	margin-right: 1%;
 	font-family: 'Montserrat', sans-serif;
-	font-size: 1.5em;
-	text-align: center;
 }
 
-.questionEditInput:focus {
+.imageEditInput {
+	border: 0.01em solid black;
+	height: 1.5em;
+	width: 50%;
 	outline: none;
+	border-radius: 0.4em;
+	margin-right: 1%;
 	font-family: 'Montserrat', sans-serif;
 }
 
 .buttonGroup {
-	display: flex;
-	justify-content: center;
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
 
-.questionEditButton {
+.editAnswerButton {
 	background-color: white;
 	color: dodgerblue;
 	padding: 0.5em;
@@ -35,7 +32,7 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
-.questionEditButton:hover {
+.editAnswerButton:hover {
 	background-color: dodgerblue;
 	color: white;
 	padding: 0.5em;
@@ -44,7 +41,7 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
-.cancelEditButton {
+.cancelEditAnswerButton {
 	background-color: white;
 	color: rgb(255, 38, 30);
 	padding: 0.5em;
@@ -53,7 +50,7 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
-.cancelEditButton:hover {
+.cancelEditAnswerButton:hover {
 	background-color: rgb(255, 38, 30);
 	color: white;
 	padding: 0.5em;
@@ -61,4 +58,3 @@
 	border-radius: 1em;
 	font-family: 'Montserrat', sans-serif;
 }
-

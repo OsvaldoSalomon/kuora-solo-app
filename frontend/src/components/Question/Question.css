@@ -1,5 +1,4 @@
 .question {
-	/* border: 1px solid black; */
 	background-color: white;
 	border-radius: 1em;
 	box-shadow: 0 0 8px #9095a1;
@@ -27,8 +26,6 @@
 	background: transparent;
 	border: none;
 	color: #b70404;
-	font-size: 1.5em;
-	animation-delay: 500ms;
 }
 
 .editBtn {
@@ -42,7 +39,6 @@
 	background: transparent;
 	border: none;
 	color: #0668f1;
-	font-size: 1.5em;
 }
 
 .questionDate {

@@ -1,10 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteAnswer } from '../../store/answers';
+import { useState } from 'react';
+import AnswerEditForm from '../AnswerEditForm';
 import './Answer.css';
 
 const Answer = ({ answer }) => {
 	const dispatch = useDispatch();
 	const sessionUser = useSelector((state) => state.session.user);
+	const [showEditForm, setShowEditForm] = useState(false);
+
+	const handleEditButton = () => {
+		setShowEditForm(!showEditForm);
+	};
 
 	return (
 		<div key={answer.id} className="answer">
@@ -21,16 +28,24 @@ const Answer = ({ answer }) => {
 							className="deleteBtn"
 							onClick={() => dispatch(deleteAnswer(answer.id))}
 						>
-							<i class="fas fa-trash-alt"></i>
+							<i className="fas fa-trash-alt"></i>
 						</button>
-						<button className="editBtn">
-							<i class="fas fa-edit"></i>
+						<button className="editBtn" onClick={handleEditButton}>
+							<i className="fas fa-edit"></i>
 						</button>
 					</div>
 				) : (
 					<span></span>
 				)}
 			</div>
+			{showEditForm ? (
+				<AnswerEditForm
+					answer={answer}
+					hideForm={() => setShowEditForm(false)}
+				/>
+			) : (
+				<span></span>
+			)}
 			<p className="answerText">{answer.answer}</p>
 			<div className="imgContainer">
 				<img className="questionImg" src={answer.imgUrl} alt={answer.title} />

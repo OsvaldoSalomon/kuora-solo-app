@@ -9,15 +9,15 @@ const Question = ({ question }) => {
 	const sessionUser = useSelector((state) => state.session.user);
 	const [showEditForm, setShowEditForm] = useState(false);
 
+	const handleEditButton = () => {
+		setShowEditForm(!showEditForm);
+	};
+
 	const options = {
 		weekday: 'long',
 		year: 'numeric',
 		month: 'long',
 		day: 'numeric',
-	};
-
-	const handleEditButton = () => {
-		setShowEditForm(!showEditForm);
 	};
 
 	return (
@@ -38,10 +38,10 @@ const Question = ({ question }) => {
 							className="deleteBtn"
 							onClick={() => dispatch(deleteQuestion(question.id))}
 						>
-							<i class="fas fa-trash-alt"></i>
+							<i className="fas fa-trash-alt"></i>
 						</button>
 						<button className="editBtn" onClick={handleEditButton}>
-							<i class="fas fa-edit"></i>
+							<i className="fas fa-edit"></i>
 						</button>
 					</div>
 				) : (

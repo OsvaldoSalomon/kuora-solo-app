@@ -8,3 +8,45 @@
     position: fixed;
 }
 
+.authLink {
+    background-color: white;
+	color: dodgerblue;
+	padding: 0.3em;
+    text-decoration: none;
+	border: 1px solid dodgerblue;
+	border-radius: 1em;
+    margin-top: .5em;
+    margin-right: 4em;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.authLink:hover {
+    background-color: dodgerblue;
+	color: white;
+	padding: 0.3em;
+    text-decoration: none;
+	border: 1px solid dodgerblue;
+	border-radius: 1em;
+    margin-top: .5em;
+    margin-right: 4em;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.navLinks {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin-top: .5em;
+}
+
+.logoLink {
+    text-decoration: none;
+    display: flex;
+}
+
+.logo {
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+    font-size: 1.5em;
+}
