@@ -1,16 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteQuestion } from '../../store/questions';
-import './Question.css'
+import { useState } from 'react';
+import QuestionEditForm from '../QuestionEditForm';
+import './Question.css';
 
 const Question = ({ question }) => {
 	const dispatch = useDispatch();
 	const sessionUser = useSelector((state) => state.session.user);
+	const [showEditForm, setShowEditForm] = useState(false);
 
 	const options = {
 		weekday: 'long',
 		year: 'numeric',
 		month: 'long',
 		day: 'numeric',
+	};
+
+	const handleEditButton = () => {
+		setShowEditForm(!showEditForm);
 	};
 
 	return (
@@ -27,15 +34,28 @@ const Question = ({ question }) => {
 				</div>
 				{sessionUser.id === question.author.id ? (
 					<div className="buttonsEditDelete">
-						<button onClick={() => dispatch(deleteQuestion(question.id))}>
-							Delete
+						<button
+							className="deleteBtn"
+							onClick={() => dispatch(deleteQuestion(question.id))}
+						>
+							<i class="fas fa-trash-alt"></i>
 						</button>
-						<button>Edit</button>
+						<button className="editBtn" onClick={handleEditButton}>
+							<i class="fas fa-edit"></i>
+						</button>
 					</div>
 				) : (
 					<span></span>
 				)}
 			</div>
+			{showEditForm ? (
+				<QuestionEditForm
+					question={question}
+					hideForm={() => setShowEditForm(false)}
+				/>
+			) : (
+				<span></span>
+			)}
 			<h2 className="questionTitle">{question.title}</h2>
 		</div>
 	);

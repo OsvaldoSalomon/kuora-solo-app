@@ -1,0 +1,53 @@
+.formContainer {
+	display: block;
+}
+
+.questionEditInput {
+    border: none;
+    padding-bottom: .5em;
+    border-bottom: .01em solid black;
+	display: block;
+	width: 100%;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.questionEditInput:focus {
+	outline: none;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.questionEditButton {
+	display: block;
+	margin-left: auto;
+	margin-top: 0.7em;
+    font-size: 1em;
+	margin-right: auto;
+	border: 1px solid rgb(3, 189, 28);
+    border-radius: .5em;
+	background: transparent;
+	color: rgb(3, 189, 28);
+}
+
+.questionEditButton:hover {
+	color: white;
+	background-color: rgb(3, 189, 28);
+}
+
+.cancelEditButton {
+    display: block;
+    font-size: 1em;
+	margin-left: auto;
+	margin-top: 0.7em;
+	margin-right: auto;
+	background: transparent;
+	border: 1px solid rgb(216, 26, 26);
+    border-radius: .5em;
+	color: rgb(216, 26, 26);
+}
+
+.cancelEditButton:hover {
+	color: white;
+	background-color: rgb(216, 26, 26);
+}

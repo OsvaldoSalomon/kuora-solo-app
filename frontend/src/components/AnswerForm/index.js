@@ -35,7 +35,7 @@ const AnswerForm = ({ questionId }) => {
 	return (
 		<section className="answerForm">
 			<form onSubmit={handleSubmit}>
-				<input
+				<textarea
 					className="answerInput"
 					type="text"
 					placeholder="Answer Question"
