@@ -1,0 +1,27 @@
+.answerEditInput {
+	border: 0.01em solid black;
+	height: 3em;
+	width: 100%;
+	outline: none;
+	border-radius: 0.4em;
+	margin-right: 1%;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.imageEditInput {
+	border: 0.01em solid black;
+	height: 1.5em;
+	width: 50%;
+	outline: none;
+	border-radius: 0.4em;
+	margin-right: 1%;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.editAnswerButton {
+	background-color: dodgerblue;
+	color: white;
+	padding: 0.5em;
+	border: none;
+	border-radius: 1em;
+}
