@@ -1,6 +1,5 @@
 .questionForm {
 	margin-top: 5em;
-	/* margin-top: 4em; */
 	margin-right: 27%;
 	margin-left: 27%;
 	background-color: white;
@@ -21,6 +20,7 @@
 	font-family: 'Montserrat', sans-serif;
 	font-size: 1.5em;
 	text-align: center;
+	background-color: white;
 }
 
 .questionInput:focus {
@@ -36,7 +36,7 @@
 	margin-right: auto;
 	background: transparent;
 	border: none;
-	color: red;
+	color: rgb(93, 93, 93);
 }
 
 .questionButton:hover {

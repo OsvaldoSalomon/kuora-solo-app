@@ -4,7 +4,6 @@ import { updateAnswer } from '../../store/answers';
 import './AnswerEditForm.css';
 
 const AnswerEditForm = ({ answer, hideForm }) => {
-    // console.log("AAANSWWER", answer);
 	const dispatch = useDispatch();
 	const [answerInput, setAnswerInput] = useState(answer.answer);
 	const [imgUrl, setImgUrl] = useState(answer.imgUrl);
@@ -17,7 +16,7 @@ const AnswerEditForm = ({ answer, hideForm }) => {
 		e.preventDefault();
 
 		const payload = {
-            id: answer.id,
+			id: answer.id,
 			userId: sessionUser.id,
 			answer: answerInput,
 			imgUrl,
@@ -55,12 +54,14 @@ const AnswerEditForm = ({ answer, hideForm }) => {
 					value={imgUrl}
 					onChange={updateImgUrl}
 				/>
-				<button className="editAnswerButton" type="submit">
-					Edit
-				</button>
-				<button type="button" onClick={hideForm} className="cancelEditButton">
-					Cancel
-				</button>
+				<div className="buttonGroup">
+					<button className="editAnswerButton" type="submit">
+						Edit
+					</button>
+					<button className="cancelEditAnswerButton" type="button" onClick={hideForm} >
+						Cancel
+					</button>
+				</div>
 			</form>
 		</section>
 	);

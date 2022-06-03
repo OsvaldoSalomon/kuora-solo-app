@@ -18,10 +18,6 @@ router.get(
 					as: 'author',
 				},
 				{
-					model: Answer,
-					include: User,
-				},
-				{
 					model: Upvote,
 				},
 			],

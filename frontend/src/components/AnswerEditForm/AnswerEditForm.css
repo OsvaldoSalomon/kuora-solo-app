@@ -1,6 +1,5 @@
 .answerEditInput {
 	border: 0.01em solid black;
-	height: 3em;
 	width: 100%;
 	outline: none;
 	border-radius: 0.4em;
@@ -18,10 +17,44 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
+.buttonGroup {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
 .editAnswerButton {
+	background-color: white;
+	color: dodgerblue;
+	padding: 0.5em;
+	margin-right: 1em;
+	border: 1px solid dodgerblue;
+	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.editAnswerButton:hover {
 	background-color: dodgerblue;
 	color: white;
 	padding: 0.5em;
 	border: none;
 	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.cancelEditAnswerButton {
+	background-color: white;
+	color: rgb(255, 38, 30);
+	padding: 0.5em;
+	border: 1px solid rgb(255, 38, 30);
+	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.cancelEditAnswerButton:hover {
+	background-color: rgb(255, 38, 30);
+	color: white;
+	padding: 0.5em;
+	border: none;
+	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
 }

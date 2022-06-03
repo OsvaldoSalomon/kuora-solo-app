@@ -18,36 +18,47 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
+.buttonGroup {
+	display: flex;
+	justify-content: center;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
 .questionEditButton {
-	display: block;
-	margin-left: auto;
-	margin-top: 0.7em;
-    font-size: 1em;
-	margin-right: auto;
-	border: 1px solid rgb(3, 189, 28);
-    border-radius: .5em;
-	background: transparent;
-	color: rgb(3, 189, 28);
+	background-color: white;
+	color: dodgerblue;
+	padding: 0.5em;
+	margin-right: 1em;
+	border: 1px solid dodgerblue;
+	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .questionEditButton:hover {
+	background-color: dodgerblue;
 	color: white;
-	background-color: rgb(3, 189, 28);
+	padding: 0.5em;
+	border: none;
+	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .cancelEditButton {
-    display: block;
-    font-size: 1em;
-	margin-left: auto;
-	margin-top: 0.7em;
-	margin-right: auto;
-	background: transparent;
-	border: 1px solid rgb(216, 26, 26);
-    border-radius: .5em;
-	color: rgb(216, 26, 26);
+	background-color: white;
+	color: rgb(255, 38, 30);
+	padding: 0.5em;
+	border: 1px solid rgb(255, 38, 30);
+	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .cancelEditButton:hover {
+	background-color: rgb(255, 38, 30);
 	color: white;
-	background-color: rgb(216, 26, 26);
+	padding: 0.5em;
+	border: none;
+	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
 }
+

@@ -12,3 +12,11 @@
     margin-bottom: 2em;
 }
 
+.showAnswerForm {
+    background: transparent;
+	border: 1px solid #164ee9;
+    border-radius: .2em;
+	color: #164ee9;
+    font-family: 'Montserrat', sans-serif;
+	/* font-size: 1.2em; */
+}

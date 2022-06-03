@@ -8,30 +8,30 @@
 .deleteBtn {
 	background: transparent;
 	border: none;
-	color: #f10606;
+	color: #6a6a6a;
 	font-size: 1.2em;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .deleteBtn:hover {
 	background: transparent;
 	border: none;
-	color: #b70404;
-	font-size: 1.5em;
-	animation-delay: 500ms;
+	color: #d50a0a;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .editBtn {
 	background: transparent;
 	border: none;
-	color: #0546a2;
+	color: #6a6a6a;
 	font-size: 1.2em;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .editBtn:hover {
 	background: transparent;
 	border: none;
 	color: #0668f1;
-	font-size: 1.5em;
 }
 
 .answerInfo {
