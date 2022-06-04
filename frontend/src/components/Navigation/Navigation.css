@@ -42,6 +42,7 @@
 .logoLink {
     text-decoration: none;
     display: flex;
+    margin-left: 4em;
 }
 
 .logo {
@@ -49,4 +50,16 @@
     color: red;
     font-weight: bold;
     font-size: 1.5em;
+}
+
+.linkQuestions {
+    background-color: white;
+	color: dodgerblue;
+	padding: .5em;
+    text-align: center;
+    height: 1em;
+    text-decoration: none;
+	border: 1px solid dodgerblue;
+	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
 }

@@ -7,3 +7,10 @@
 .welcome {
     font-size: 5em;
 }
+
+.splashImage img {
+    max-width: 65%;
+    max-height: 60%;
+    border-radius: .7em;
+}
+
