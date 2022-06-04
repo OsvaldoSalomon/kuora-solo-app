@@ -14,13 +14,8 @@ const Home = () => {
 					Share your knowledge.
 				</h2>
 			</div>
-			<div className="">
-				<NavLink className="linkQuestions" to="/questions">
-					Start Asking
-				</NavLink>
-			</div>
 			<div className="splashImage">
-				<img src="https://images.unsplash.com/photo-1652932420117-0055d554e60f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80" />
+				<img className="imageSplash" src="https://images.unsplash.com/photo-1652932420117-0055d554e60f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80" />
 			</div>
 		</div>
 	);
