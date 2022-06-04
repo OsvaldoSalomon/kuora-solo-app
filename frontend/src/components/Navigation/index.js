@@ -11,19 +11,25 @@ function Navigation({ isLoaded }) {
 	if (sessionUser) {
 		sessionLinks = (
 			<>
-				{/* <li>
-					<NavLink to="/questions">Questions</NavLink>
-				</li> */}
 				<li>
 					<ProfileButton user={sessionUser} />
+				</li>
+				<li>
+					<NavLink className="linkQuestions" to="/questions">
+						Start Asking
+					</NavLink>
 				</li>
 			</>
 		);
 	} else {
 		sessionLinks = (
 			<>
-				<NavLink className="authLink" to="/login">Log In</NavLink>
-				<NavLink className="authLink" to="/signup">Sign Up</NavLink>
+				<NavLink className="authLink" to="/login">
+					Log In
+				</NavLink>
+				<NavLink className="authLink" to="/signup">
+					Sign Up
+				</NavLink>
 			</>
 		);
 	}
