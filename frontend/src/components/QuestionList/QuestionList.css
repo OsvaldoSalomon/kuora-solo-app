@@ -15,8 +15,8 @@
 .showAnswerForm {
     background: transparent;
 	border: 1px solid #164ee9;
-    border-radius: .2em;
+    border-radius: .4em;
 	color: #164ee9;
     font-family: 'Montserrat', sans-serif;
-	/* font-size: 1.2em; */
+    margin-bottom: 0.5em;
 }

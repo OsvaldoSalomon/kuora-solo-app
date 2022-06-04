@@ -63,3 +63,15 @@
 	border-radius: 1em;
 	font-family: 'Montserrat', sans-serif;
 }
+
+.linkQuestions:hover {
+    background-color: dodgerblue;
+	color: white;
+	padding: .5em;
+    text-align: center;
+    height: 1em;
+    text-decoration: none;
+	border: 1px solid dodgerblue;
+	border-radius: 1em;
+	font-family: 'Montserrat', sans-serif;
+}
