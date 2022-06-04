@@ -24,6 +24,17 @@ function LoginFormPage() {
 		);
 	};
 
+	const handleSubmitDemoLogin = (e) => {
+		e.preventDefault();
+		setErrors([]);
+		return dispatch(
+			sessionActions.login({ credential: 'Demo-lition', password: 'password' })
+		).catch(async (res) => {
+			const data = await res.json();
+			if (data && data.errors) setErrors(data.errors);
+		});
+	};
+
 	return (
 		<div className="loginContainer">
 			<form className="loginForm" onSubmit={handleSubmit}>
@@ -56,8 +67,14 @@ function LoginFormPage() {
 				<button className="loginButton" type="submit">
 					Log In
 				</button>
+				<button className="loginButton" onClick={handleSubmitDemoLogin}>
+					Demo Login
+				</button>
 				<p>
-					Don't have an account? <a className='linkSignup' href="/signup">Sign Up</a>
+					Don't have an account?{' '}
+					<a className="linkSignup" href="/signup">
+						Sign Up
+					</a>
 				</p>
 			</form>
 		</div>
