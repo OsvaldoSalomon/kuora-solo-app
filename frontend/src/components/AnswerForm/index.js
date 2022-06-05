@@ -41,7 +41,7 @@ const AnswerForm = ({ questionId }) => {
 	return (
 		<section className="answerForm">
 			<form onSubmit={handleSubmit}>
-				<ul>
+				<ul className='errorsList'>
 					{errors.map((error, idx) => (
 						<li className="errors" key={idx}>
 							{error}
@@ -52,7 +52,6 @@ const AnswerForm = ({ questionId }) => {
 					className="answerInput"
 					type="text"
 					placeholder="Answer Question"
-					required
 					value={answer}
 					onChange={updateAnswer}
 				/>

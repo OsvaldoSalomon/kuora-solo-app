@@ -22,7 +22,10 @@ const QuestionForm = () => {
 			title,
 		};
 
-		dispatch(writeQuestion(payload));
+		dispatch(writeQuestion(payload)).catch(async (res) => {
+			const data = await res.json();
+			if (data && data.errors) setErrors(data.errors);
+		});
 		reset();
 	};
 
@@ -31,9 +34,9 @@ const QuestionForm = () => {
 	};
 
 	return (
-		<section className="questionForm">
-			<form onSubmit={handleSubmit}>
-				<ul>
+		<section className="questionFormContainer">
+			<form className="questionForm" onSubmit={handleSubmit}>
+				<ul className="errorsList">
 					{errors.map((error, idx) => (
 						<li className="errors" key={idx}>
 							{error}
@@ -45,7 +48,6 @@ const QuestionForm = () => {
 						className="questionInput"
 						type="text"
 						placeholder="What do you want to ask or share?"
-						required
 						value={title}
 						onChange={updateTitle}
 					/>
