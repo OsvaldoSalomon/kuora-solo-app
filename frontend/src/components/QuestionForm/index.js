@@ -14,9 +14,6 @@ const QuestionForm = () => {
 		e.preventDefault();
 		setErrors([]);
 
-		if (title > 25) {
-			setErrors('Title must be less than 25 characters');
-		}
 		const payload = {
 			ownerId: sessionUser.id,
 			title,

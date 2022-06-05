@@ -51,9 +51,6 @@ const QuestionsList = () => {
 									}
 								})}
 							</div>
-							<div className="upvotesContainer">
-								<p>Upvotes: {question?.Upvotes.length}</p>
-							</div>
 						</div>
 					);
 				})}
