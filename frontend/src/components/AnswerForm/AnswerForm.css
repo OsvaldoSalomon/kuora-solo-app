@@ -25,3 +25,12 @@
 	border: none;
 	border-radius: 1em;
 }
+
+.errors {
+	color: white;
+	text-align: center;
+	list-style: none;
+	background-color: #e33333;
+	padding: 0.5em;
+	border-radius: 0.3em;
+}
