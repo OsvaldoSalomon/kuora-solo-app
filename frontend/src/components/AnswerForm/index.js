@@ -65,13 +65,18 @@ const AnswerForm = ({ questionId }) => {
 						onChange={updateImgUrl}
 					/>
 				)}
-				<button className="submitAnswerButton" type="button" onClick={handleAddImage}>
-					Add image URL
-				</button>
-
-				<button className="submitAnswerButton" type="submit">
-					Add Answer
-				</button>
+				<div className="buttons">
+					<button
+						className="addImageButton"
+						type="button"
+						onClick={handleAddImage}
+					>
+						Add an image
+					</button>
+					<button className="submitAnswerButton" type="submit">
+						Post Answer
+					</button>
+				</div>
 			</form>
 		</section>
 	);

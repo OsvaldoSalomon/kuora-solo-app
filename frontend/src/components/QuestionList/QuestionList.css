@@ -18,5 +18,12 @@
     border-radius: .4em;
 	color: #164ee9;
     font-family: 'Montserrat', sans-serif;
-    margin-bottom: 0.5em;
+}
+
+.showAnswerForm:hover {
+    background: #164ee9;
+	border: 1px solid #164ee9;
+    border-radius: .4em;
+	color: white;
+    font-family: 'Montserrat', sans-serif;
 }
