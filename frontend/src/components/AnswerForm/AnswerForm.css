@@ -18,10 +18,55 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
-.submitAnswerButton {
+.addImageButton {
 	background-color: dodgerblue;
 	color: white;
 	padding: 0.5em;
 	border: none;
 	border-radius: 1em;
+}
+
+.addImageButton:hover {
+	background-color: rgb(16, 117, 217);
+	color: white;
+	padding: 0.5em;
+	border: none;
+	border-radius: 1em;
+}
+
+.submitAnswerButton {
+	background-color: white;
+	color: rgb(255, 30, 30);
+	padding: 0.5em;
+	border: 0.09em solid rgb(255, 30, 30);
+	border-radius: 1em;
+}
+
+.submitAnswerButton:hover {
+	background-color: rgb(255, 30, 30);
+	color: white;
+	padding: 0.5em;
+	border: 0.09em solid rgb(255, 30, 30);
+	border-radius: 1em;
+}
+
+.errors {
+	color: white;
+	text-align: center;
+	list-style: none;
+	background-color: #e33333ed;
+	padding: 0.5em;
+	border-radius: 0.3em;
+}
+
+.errorsList {
+	padding-left: 0;
+}
+
+.buttons {
+	display: flex;
+	gap: 0.4em;
+	margin-top: 0.3em;
+	flex-direction: column;
+	align-items: flex-start;
 }

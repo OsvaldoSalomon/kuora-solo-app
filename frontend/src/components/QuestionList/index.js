@@ -24,8 +24,8 @@ const QuestionsList = () => {
 		dispatch(getAllAnswers());
 	}, [dispatch]);
 
-	const handleShowAnswerForm = () => {
-		setShowAnswerForm(!showAnswerForm);
+	const handleShowAnswerForm = (id) => {
+		setShowAnswerForm(id);
 	};
 
 	return (
@@ -38,8 +38,13 @@ const QuestionsList = () => {
 							<Question question={question} />
 							<hr />
 							<div className="answersContainer">
-								<button className="showAnswerForm" onClick={handleShowAnswerForm}>Answer Question</button>
-								{showAnswerForm && <AnswerForm questionId={question.id} />}
+								<button
+									className="showAnswerForm"
+									onClick={() => handleShowAnswerForm(question.id)}
+								>
+									Answer Question
+								</button>
+								{showAnswerForm === question.id && <AnswerForm questionId={question.id} />}
 								{answers?.map((answer) => {
 									if (answer.questionId === question.id) {
 										return <Answer key={answer.id} answer={answer} />;

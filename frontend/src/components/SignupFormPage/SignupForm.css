@@ -6,7 +6,7 @@
 }
 
 .signUpForm {
-    display: flex;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
@@ -67,4 +67,13 @@
 .linkLogin {
 	text-decoration: none;
 	color: #0443d5;
+}
+
+.errors {
+	color: white;
+	text-align: center;
+	list-style: none;
+	background-color: #e33333;
+	padding: 0.5em;
+	border-radius: 0.3em;
 }

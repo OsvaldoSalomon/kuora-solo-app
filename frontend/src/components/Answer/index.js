@@ -47,9 +47,13 @@ const Answer = ({ answer }) => {
 				<span></span>
 			)}
 			<p className="answerText">{answer.answer}</p>
-			<div className="imgContainer">
-				<img className="questionImg" src={answer.imgUrl} alt={answer.title} />
-			</div>
+			{answer.imgUrl !== '' ? (
+				<div className="imgContainer">
+					<img className="questionImg" src={answer.imgUrl} alt={answer.title} />
+				</div>
+			) : (
+				<span></span>
+			)}
 		</div>
 	);
 };
