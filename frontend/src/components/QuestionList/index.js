@@ -11,6 +11,7 @@ import './QuestionList.css';
 const QuestionsList = () => {
 	const dispatch = useDispatch();
 	const [showAnswerForm, setShowAnswerForm] = useState(false);
+	const [sameAnswerForm, setSameAnswerForm] = useState('');
 	const questionList = useSelector((state) => Object.values(state.questions));
 	const answers = useSelector((state) => Object.values(state.answers));
 	const sortedQuestions = questionList
@@ -25,7 +26,8 @@ const QuestionsList = () => {
 	}, [dispatch]);
 
 	const handleShowAnswerForm = (id) => {
-		setShowAnswerForm(id);
+		setSameAnswerForm(id);
+		setShowAnswerForm(!showAnswerForm);
 	};
 
 	return (
@@ -44,7 +46,9 @@ const QuestionsList = () => {
 								>
 									Answer Question
 								</button>
-								{showAnswerForm === question.id && <AnswerForm questionId={question.id} />}
+								{showAnswerForm && sameAnswerForm === question.id && (
+									<AnswerForm questionId={question.id} />
+								)}
 								{answers?.map((answer) => {
 									if (answer.questionId === question.id) {
 										return <Answer key={answer.id} answer={answer} />;
