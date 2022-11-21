@@ -3,7 +3,7 @@
 
 Welcome to Kuora, a clone of Quora, this app is a question and answer website where people go to find information.
 
-[Live Link](https://kuora-app.herokuapp.com/)
+[Live Link](https://kuora.onrender.com)
 
 ## Screenshots
 Registration Page
